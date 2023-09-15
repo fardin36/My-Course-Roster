@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 
-const Card = ({thumbnail, title, description, price, credit}) => {
+
+const Card = ({ thumbnail, title, description, price, credit, handleSelectCourse }) => {
 
     return (
         <>
@@ -32,12 +34,21 @@ const Card = ({thumbnail, title, description, price, credit}) => {
                     </div>
                     <div className="card-actions pt-6 pb-4">
                         {/* Course Select */}
-                        <button className="btn btn-primary btn-sm bg-[#2F80ED] w-full">Select</button>
+                        <button onClick={handleSelectCourse} className="btn btn-primary btn-sm bg-[#2F80ED] w-full">Select</button>
                     </div>
                 </div>
             </div>
         </>
     );
 };
+
+Card.propTypes = {
+    thumbnail: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    credit: PropTypes.number.isRequired,
+    handleSelectCourse: PropTypes.func.isRequired
+}
 
 export default Card;
